@@ -1,5 +1,6 @@
 <% title t('reviews.product_reviews') %>
 <% content_for :content do %>
+1
   <% if @product && (@brand.review_writable? || !@reviews.empty?) %>
     <% display_write_form = @brand.review_writable? && display_write_form?(@product) %>
     <%= content_tag :div, class: "widget new-review first #{'no-writable' if !@brand.review_writable?}" do %>
@@ -26,7 +27,7 @@
                     </div>
                   </div>
                   <div class="rfloat">
-                    <div class="hint">* 현재 비회원으로 리뷰작성 중 입니다.1</div>
+                    <div class="hint">* 현재 비회원으로 리뷰작성 중 입니다.</div>
                     <a class="link-login">로그인 후 작성하기</a>
                   </div>
                 </div>
