@@ -5,12 +5,12 @@
     <%= content_tag :div, class: "widget new-review first #{'no-writable' if !@brand.review_writable?}" do %>
       <div class="widget-heading">
         <% if !@brand.reviews_index_url.blank? %>
-          <%= content_tag :div, @brand.reviews_index_button_title, class: 'rfloat btn show-reviews-index', data: {reviews_index_url: @brand.reviews_index_url} %>
+          <%= content_tag :div, widget.reviews_button_title, class: 'rfloat btn show-reviews-index', data: {reviews_index_url: @brand.reviews_index_url} %>
         <% end %>
       </div>
       <% if display_write_form %>
         <div class="widget-body">
-          <%= render 'reviews/form' %>
+          <%= render 'products/reviews/custom/form' %>
           <% if @brand.review_enable_nonmember_review? && !current_user %>
             <div id="nonmember-review-tmpl" class="hidden">
               <div class="nonmember-review">
@@ -69,19 +69,9 @@
         </div>
       <% end %>
     <% end %>
-    <% if @brand.review_show_score_summary || (@brand.review_show_thumbnail_summary && @product.photo_reviews_count > 0) %>
-      <%
-        only_thumbnail = nil
-        if !@brand.review_show_score_summary
-          only_thumbnail = 'only-thumbnail' if !display_write_form
-        end
-      %>
-      <div class="product-reviews-summary <%= only_thumbnail %>">
-        <%= content_tag :div, class: 'score-summary', data: {url: ajax_path(except: [:scores, :filter, :page], atarget: 'reviews')} do %>
-          <%= render 'reviews_summary', product: @product %>
-        <% end %>
-      </div>
-    <% end %>
-    <%= render 'reviews' %>
+    <div class="product-reviews-summary">
+      <%= render 'products/reviews/custom/summary', klass: ('without_write_form' unless display_write_form) %>
+    </div>
+    <%= render 'products/reviews/custom/reviews' %>
   <% end %>
 <% end %>
