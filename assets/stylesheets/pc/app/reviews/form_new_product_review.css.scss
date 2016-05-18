@@ -24,10 +24,6 @@
     font-family: $font-default;
   }
 
-  select.select-rating {
-    display: none;
-  }
-
   textarea {
     min-height: 100px;
     height: auto;
@@ -91,7 +87,6 @@
     height: 33px;
     border: 1px solid #dadada;
     margin-right: 5px;
-    text-align: center;
 
     .sprites-icon-camera-black {
       position: absolute;
@@ -100,16 +95,15 @@
     }
 
     .description {
-      position: absolute;
       color: #8f8f8f;
-      top: 10px;
-      left: 9px;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
       width: 135px;
       font-weight: bold;
       font-size: 12px;
+      padding-left: 47px;
+      line-height: 35px;
     }
   }
 
