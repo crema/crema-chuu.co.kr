@@ -430,7 +430,7 @@ body.products.reviews, #review-edit-form {
       left: 0;
       width: 100%;
       text-align: center;
-      font-family: $font-default;
+      @include font-default;
       font-size: 12px;
       font-weight: bold;
       color: white;
@@ -519,7 +519,7 @@ body.products.reviews, #review-edit-form {
 
     .title {
       font-size: 27px;
-      font-family: $font-default;
+      @include font-default;
     }
 
     #review-photo-summary {
@@ -532,7 +532,7 @@ body.products.reviews, #review-edit-form {
 
         .count {
           font-weight: bold;
-          font-family: $font-default;
+          @include font-default;
           padding-right: 3px;
         }
       }
